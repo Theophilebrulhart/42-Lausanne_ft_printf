@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_print.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrulhar <tbrulhar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theophilebrulhart <theophilebrulhart@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 19:11:24 by tbrulhar          #+#    #+#             */
-/*   Updated: 2021/11/11 19:22:03 by tbrulhar         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:31:34 by theophilebr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,20 @@ void	ft_itoa_print(int nb, int *count)
 		write(1, &c, 1);
         *count += 1;
 	}
+}
+
+void	ft_unitoa_print(unsigned int nb, int *count)
+{
+	char	c;
+
+		if (nb < 0)
+		{
+			write(1, "-", 1);
+			nb = -nb;
+		}
+		if (nb > 9)
+			ft_itoa_print(nb / 10, count);
+		c = nb % 10 + '0';
+		write(1, &c, 1);
+        *count += 1;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbrulhar <tbrulhar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theophilebrulhart <theophilebrulhart@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 16:56:02 by tbrulhar          #+#    #+#             */
-/*   Updated: 2021/11/11 19:22:57 by tbrulhar         ###   ########.fr       */
+/*   Updated: 2021/11/12 19:43:58 by theophilebr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,20 @@ int	ft_printf(const char *str, ...)
 		if (str[i] != '%' && ++count)
 			write(1, str + i, 1);
 		if (str[i] == '%')
-			ft_sort_out(str[i++ + 1], args, &count);
+			args = ft_sort_out(str[i++ + 1], args, &count);
 		i++;
 	}
 	return (count);
 }
 
-int main(void)
-{
-	printf("\n%d\n", ft_printf("1234 %d 789", -2147483648));
-}
+// int main(void)
+// {
+// 	//char str[] = "b";
+// 	unsigned int	d = -2147483648;
+// 	//unsigned int u = 0;
+// 	// int *p = &d;
+// 	printf("officiel %%x : %X\n", d);
+// 	ft_printf("moi %%x : %X\n", d);
+// // 	printf("%d\n\n", (ft_printf("officiel :\n1%d%i%c%s%%%u\n", d, 3, 'a', str, u) - 12));
+// // 	printf("\n%d\n", (ft_printf("moi :\n1%d%i%c%s%%%u\n", d, 3, 'a', str, u) - 7));
+//  }
